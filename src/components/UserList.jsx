@@ -1,8 +1,12 @@
-import UserRow from "./UserRow";
+import UserRow from './UserRow'
 
-const UserList = ({ handlerRemoveUser, initialUser = [] }) => {
+const UserList = ({
+  handlerRemoveUser,
+  initialUser = [],
+  handlerUserSelectedForm,
+}) => {
   return (
-    <table className="table table-hover table-striped">
+    <table className='table table-hover table-striped'>
       <thead>
         <tr>
           <th>#</th>
@@ -14,7 +18,7 @@ const UserList = ({ handlerRemoveUser, initialUser = [] }) => {
       </thead>
       <tbody>
         {initialUser ? (
-          initialUser.map((user) => {
+          initialUser.map(user => {
             return (
               <UserRow
                 key={user.id}
@@ -22,15 +26,16 @@ const UserList = ({ handlerRemoveUser, initialUser = [] }) => {
                 username={user.username}
                 email={user.email}
                 handlerRemoveUser={handlerRemoveUser}
+                handlerUserSelectedForm={handlerUserSelectedForm}
               />
-            );
+            )
           })
         ) : (
           <h2>cargando...</h2>
         )}
       </tbody>
     </table>
-  );
-};
+  )
+}
 
-export default UserList;
+export default UserList
